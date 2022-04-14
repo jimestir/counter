@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
+import useCounter from "./hooks/useCounter";
 
 function App() {
-  const [value, setValue] = useState(0);
+  const { counter, increase, decrease, reset } = useCounter();
 
   return (
     <>
       <div className="App">
-        {value}
-        <button onClick={() => setValue(value + 1)}>+</button>
-        <button onClick={() => setValue(value - 1)}>-</button>
-        <button onClick={() => setValue(0)}>reset</button>
+        {counter}
+        <button onClick={increase}>+</button>
+        <button onClick={decrease}>-</button>
+        <button onClick={reset}>reset</button>
       </div>
       ;
     </>
